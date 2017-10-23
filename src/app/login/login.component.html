@@ -1,0 +1,31 @@
+<div class="ui massive menu">
+  <div class="left menu item">
+    <img class="ui small image" src="/assets/camplogo.jpg">
+  </div>
+  <h1 class="ui huge green header companyName">{{title}}!</h1>
+  <div class="right menu item">
+    <a routerLink="/signup" class="ui primary button">Sign-up</a>
+    <a routerLink="/login" class="ui button">Log-in</a>
+  </div>
+</div>
+<div class="ui attached inverted message container">
+  <div class="header">
+    <h2 class="ui dividing inverted">Log-in</h2>
+  </div>
+  <form class="ui huge inverted form attached fluid segment" (ngSubmit)=onSubmitLogin(f) #f="ngForm">
+    <div class="field">
+      <div class="two fields">
+        <div class="field">
+          <label>Email Address:</label>
+          <input ngModel type="email" name="email" placeholder="Email" required>
+        </div>
+        <div class="field">
+          <label>Password:</label>
+          <input ngModel type="password" name="password" placeholder="Password" required>
+        </div>
+      </div>
+    </div>
+    <a routerLink="/signup" routerLinkActive="active"  class="redirectToSignUp">New Member? Sign-up</a>
+    <button class="ui inverted button" type="submit">Submit</button>
+  </form>
+</div>

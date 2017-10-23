@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+.companyName {
+  font-family: 'Luckiest Guy', cursive !important;
+  font-size: 4em !important;
+  margin-bottom: 0 !important;
+}
+
+button {
+  margin: 1em!important;
+}
+
+.redirectToLogIn, .redirectToSignUp {
+  text-decoration: underline;
+}
+
+.redirectToLogIn:hover, .redirectToSignUp:hover {
+  color: #41c7f4;
+  text-decoration: underline;
+}
