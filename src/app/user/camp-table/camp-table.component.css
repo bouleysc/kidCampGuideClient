@@ -5,3 +5,7 @@
     -ms-user-select: none;
     user-select: none;
 }
+:host /deep/ .data-table > thead > tr > th,
+:host /deep/ .data-table > tbody > tr > td {
+	overflow: hidden;
+}
