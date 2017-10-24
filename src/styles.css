@@ -1,8 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  background-color: #d6dbda;
+}
+
+.menu {
+  background-color: #94C3E9 !important;
+}
+
 .companyName {
   font-family: 'Luckiest Guy', cursive !important;
   font-size: 4em !important;
   margin-bottom: 0 !important;
+  color: #01916f !important;
 }
 
 button {
@@ -16,4 +25,14 @@ button {
 .redirectToLogIn:hover, .redirectToSignUp:hover {
   color: #41c7f4;
   text-decoration: underline;
+}
+
+.card, .companyInfo {
+  background-color: #c3e2db !important;
+  margin-top: 5% !important;
+}
+
+.companyInfo {
+  margin: 5% 10% !important;
+  background-color: #c3e2db !important;
 }

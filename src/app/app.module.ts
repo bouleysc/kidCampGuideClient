@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-// import { NgSemanticModule } from "ng-semantic";
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -11,9 +11,11 @@ import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HomeComponent } from './home/home.component';
 import { AuthService } from './auth.service';
+import { CampsService } from './camps.service'
 import { LogoutComponent } from './user/logout/logout.component';
 import { UserComponent } from './user/user.component';
 import { CampTableComponent } from './user/camp-table/camp-table.component';
+import { DataTableModule } from 'angular-4-data-table/src/index';
 
 @NgModule({
   declarations: [
@@ -30,10 +32,11 @@ import { CampTableComponent } from './user/camp-table/camp-table.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    // NgSemanticModule,
+    DataTableModule,
+    CommonModule,
     AppRoutingModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, CampsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

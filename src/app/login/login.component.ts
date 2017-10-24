@@ -22,14 +22,21 @@ export class LoginComponent implements OnInit {
       email: email,
       password: password
     }
+    // const token = localStorage.getItem('token')
+    // if (!token) {
+    //   location.href = '/'
+    //   alert('Invalid Input');
+    // }
     this.authService.login(body)
     .subscribe(
       (response: Response) => {
         let data = response.json();
         localStorage.setItem('token', data.data)
-        this.router.navigate(['/user'])
+        this.router.navigate(['/user/:id'])
         },
-      (error) => console.log(error)
+      (error) => {
+        console.log(error)
+      }
     );
   }
 }

@@ -1,3 +1,91 @@
-<p>
-  camp-table works!
-</p>
+<div style="max-width: 100%; margin-bottom: 50px;">
+    <data-table id="camps-grid"
+        headerTitle="Camps"
+        [items]="camps"
+        [itemCount]="campCount"
+        (reload)="reloadItems($event)"
+        (rowClick)="rowClick($event)"
+        (rowDoubleClick)="rowDoubleClick($event)"
+        [rowTooltip]="rowTooltip"
+        >
+        <data-table-column
+            [property]="'organization_name'"
+            [header]="'Organization Name'"
+            [sortable]="true"
+            [resizable]="true">
+        </data-table-column>
+        <data-table-column
+            [property]="'program_name'"
+            [header]="'Program Name'"
+            [sortable]="true"
+            [resizable]="true">
+        </data-table-column>
+        <data-table-column
+            [property]="'program_type'"
+            [header]="'Program Type'"
+            [sortable]="true"
+            [resizable]="true">
+        </data-table-column>
+        <data-table-column
+            [property]="'program_city'"
+            [header]="'Program City'"
+            [sortable]="true"
+            [resizable]="true">
+        </data-table-column>
+        <data-table-column
+            [property]="'program_state'"
+            [header]="'Program State'"
+            [resizable]="true">
+        </data-table-column>
+        <data-table-column
+            [property]="'program_start_date'"
+            [header]="'Program Start Date'"
+            [sortable]="true">
+            <ng-template #dataTableCell let-item="item">
+                <span>{{item.program_start_date | date:'MM-dd-yyyy'}}</span>
+            </ng-template>
+        </data-table-column>
+        <data-table-column
+            [property]="'program_end_date'"
+            [header]="'Program End Date'"
+            [sortable]="true">
+            <ng-template #dataTableCell let-item="item">
+                <span>{{item.program_end_date | date:'MM-dd-yyyy'}}</span>
+            </ng-template>
+        </data-table-column>
+        <data-table-column
+            property="program_phone"
+            header="Program Number/Email"
+            width="150px">
+        </data-table-column>
+        <data-table-column
+            property="program_website"
+            header="Program Website"
+            width="100px">
+        </data-table-column>
+        <data-table-column
+            [property]="'participant_gender'"
+            [header]="'Participant Gender'"
+            [sortable]="true"
+            [resizable]="true">
+        </data-table-column>
+        <data-table-column
+            [property]="'participant_age_min'"
+            [header]="'Participant Minimum Age'"
+            [sortable]="true"
+            [resizable]="true">
+        </data-table-column>
+        <data-table-column
+            [property]="'participant_age_max'"
+            [header]="'Participant Maximum Age'"
+            [sortable]="true"
+            [resizable]="true">
+        </data-table-column>
+        <data-table-column
+            [property]="'cost'"
+            [header]="'Program Cost'"
+            [sortable]="true"
+            [resizable]="true">
+        </data-table-column>
+    </data-table>
+</div>
