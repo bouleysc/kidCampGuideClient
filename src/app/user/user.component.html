@@ -1,13 +1,4 @@
-
-<div class="ui massive menu">
-  <div class="left menu item">
-    <img class="ui small image" src="/assets/camplogo.jpg">
-  </div>
-  <h1 class="ui huge header companyName">{{title}}!</h1>
-  <div class="right menu item">
-    <app-logout></app-logout>
-  </div>
-</div>
+<app-logout></app-logout>
 
 <div class="ui raised two cards container">
   <div class="teal card">
@@ -19,9 +10,8 @@
         and times.
       </div>
     </div>
-    <div class="ui bottom attached button">
-      <i class="add icon"></i>
-      Click Here!
+    <div routerLink="/user/:id/camps" class="ui bottom attached button">
+      <i>Click Here!</i>
     </div>
   </div>
   <div class="teal card">
@@ -31,9 +21,8 @@
         Your custom favorites list that you created.
       </div>
     </div>
-    <div class="ui bottom attached button">
-      <i class="add icon"></i>
-      Click Here!
+    <div routerLink="/user/:id/favorites" class="ui bottom attached button">
+      <i>Click Here!</i>
     </div>
   </div>
   <div class="teal card">
@@ -43,9 +32,8 @@
         Your list of camps that you've already booked.
       </div>
     </div>
-    <div class="ui bottom attached button">
-      <i class="add icon"></i>
-      Click Here!
+    <div routerLink="/user/:id/booked" class="ui bottom attached button">
+      <i>Click Here!</i>
     </div>
   </div>
   <div class="teal card">
@@ -56,10 +44,8 @@
         (transparent color) and 'booked' camps (solid color).
       </div>
     </div>
-    <div class="ui bottom attached button">
-      <i class="add icon"></i>
-      Click Here!
+    <div routerLink="/user/:id/calendar" class="ui bottom attached button">
+      <i>Click Here!</i>
     </div>
   </div>
 </div>
-<app-camp-table></app-camp-table>

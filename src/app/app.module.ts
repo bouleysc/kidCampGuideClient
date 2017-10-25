@@ -16,6 +16,10 @@ import { LogoutComponent } from './user/logout/logout.component';
 import { UserComponent } from './user/user.component';
 import { CampTableComponent } from './user/camp-table/camp-table.component';
 import { DataTableModule } from 'angular-4-data-table/src/index';
+import { HeaderComponent } from './header/header.component';
+import { FavoriteListComponent } from './user/favorite-list/favorite-list.component';
+import { BookedListComponent } from './user/booked-list/booked-list.component';
+import { CalendarComponent } from './user/calendar/calendar.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,11 @@ import { DataTableModule } from 'angular-4-data-table/src/index';
     HomeComponent,
     LogoutComponent,
     UserComponent,
-    CampTableComponent
+    CampTableComponent,
+    HeaderComponent,
+    FavoriteListComponent,
+    BookedListComponent,
+    CalendarComponent
   ],
   imports: [
     BrowserModule,

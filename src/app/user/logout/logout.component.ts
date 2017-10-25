@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./logout.component.css']
 })
 export class LogoutComponent implements OnInit {
-
+  title = 'KidCampGuide';
   constructor(private router: Router) { }
 
   ngOnInit() {

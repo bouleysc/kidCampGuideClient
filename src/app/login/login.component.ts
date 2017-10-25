@@ -22,11 +22,6 @@ export class LoginComponent implements OnInit {
       email: email,
       password: password
     }
-    // const token = localStorage.getItem('token')
-    // if (!token) {
-    //   location.href = '/'
-    //   alert('Invalid Input');
-    // }
     this.authService.login(body)
     .subscribe(
       (response: Response) => {

@@ -1,17 +1,34 @@
-<div style="max-width: 100%; margin-bottom: 50px;">
+<app-logout></app-logout>
+
+<div style="max-width: 100%; margin: auto; padding: 25px;">
+  <h1 class="ui center aligned header tableTitle">CAMPS</h1>
+  <button class="ui teal button"><i class="add icon"></i>Add To Favorites</button>
+  <button class="ui blue button"><i class="add icon"></i>Add To Booked</button>
     <data-table id="camps-grid"
-        headerTitle="Camps"
         [items]="camps"
         [itemCount]="campCount"
         (reload)="reloadItems($event)"
         (rowClick)="rowClick($event)"
-        (rowDoubleClick)="rowDoubleClick($event)"
         [rowTooltip]="rowTooltip"
+        [expandableRows]="true"
+        [translations]="translations"
+        [limit]="10"
+        [sortAsc]="true"
+        [selectOnRowClick]="true"
+        [selectColumn]="true"
+        [multiSelect]="true"
+        [pagination]="false"
+        [substituteRows]="false"
+        [indexColumn]="'false'"
+        [indexColumnHeader]="'#'"
         >
+        <ng-template #dataTableExpand let-item="item">
+            <i class="info circle icon"></i>
+            <div [textContent]="'DESCRIPTION: ' + item.program_description" style="padding: 5px; background-color: #c3e2db;">Description: </div>
+        </ng-template>
         <data-table-column
             [property]="'organization_name'"
             [header]="'Organization Name'"
-            [sortable]="true"
             [resizable]="true">
         </data-table-column>
         <data-table-column
@@ -23,13 +40,11 @@
         <data-table-column
             [property]="'program_type'"
             [header]="'Program Type'"
-            [sortable]="true"
             [resizable]="true">
         </data-table-column>
         <data-table-column
             [property]="'program_city'"
             [header]="'Program City'"
-            [sortable]="true"
             [resizable]="true">
         </data-table-column>
         <data-table-column
@@ -39,16 +54,14 @@
         </data-table-column>
         <data-table-column
             [property]="'program_start_date'"
-            [header]="'Program Start Date'"
-            [sortable]="true">
+            [header]="'Program Start Date'">
             <ng-template #dataTableCell let-item="item">
                 <span>{{item.program_start_date | date:'MM-dd-yyyy'}}</span>
             </ng-template>
         </data-table-column>
         <data-table-column
             [property]="'program_end_date'"
-            [header]="'Program End Date'"
-            [sortable]="true">
+            [header]="'Program End Date'">
             <ng-template #dataTableCell let-item="item">
                 <span>{{item.program_end_date | date:'MM-dd-yyyy'}}</span>
             </ng-template>
@@ -59,33 +72,32 @@
             [resizable]="true">
         </data-table-column>
         <data-table-column
-            property="program_website"
-            header="Program Website"
-            width="100px">
+          [header]="'Program Website'">
+          <ng-template #dataTableCell let-item="item">
+            <a href="{{item.program_website}}" class="btn btn-sm btn-default">Website Link</a>
+          </ng-template>
         </data-table-column>
         <data-table-column
             [property]="'participant_gender'"
             [header]="'Participant Gender'"
-            [sortable]="true"
             [resizable]="true">
         </data-table-column>
         <data-table-column
             [property]="'participant_age_min'"
             [header]="'Participant Minimum Age'"
-            [sortable]="true"
             [resizable]="true">
         </data-table-column>
         <data-table-column
             [property]="'participant_age_max'"
             [header]="'Participant Maximum Age'"
-            [sortable]="true"
             [resizable]="true">
         </data-table-column>
         <data-table-column
             [property]="'cost'"
             [header]="'Program Cost'"
-            [sortable]="true"
             [resizable]="true">
         </data-table-column>
     </data-table>
+    <button class="ui teal button"><i class="add icon"></i>Add To Favorites</button>
+    <button class="ui blue button"><i class="add icon"></i>Add To Booked</button>
 </div>

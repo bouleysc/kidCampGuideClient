@@ -36,3 +36,10 @@ button {
   margin: 5% 10% !important;
   background-color: #c3e2db !important;
 }
+
+.tableTitle {
+  font-size: 3em !important;
+  font-family: fantasy !important;
+  text-decoration: underline;
+  margin-bottom: 0 !important;
+}

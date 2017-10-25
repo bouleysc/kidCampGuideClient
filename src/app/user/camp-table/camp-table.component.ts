@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CampsService } from 'app/camps.service';
-import { DataTableResource } from 'angular-4-data-table';
+import { DataTable, DataTableTranslations, DataTableResource } from 'angular-4-data-table';
 
 
 @Component({
@@ -12,6 +12,7 @@ export class CampTableComponent implements OnInit {
     camps = [];
     campCount = 0;
     campResource = new DataTableResource(this.camps);
+    @ViewChild(DataTable) campsTable: DataTable;
     constructor(private campsService: CampsService) {
       this.campResource.count().then(count => this.campCount = count)
     }
@@ -44,20 +45,13 @@ export class CampTableComponent implements OnInit {
       console.log('Clicked: ' + rowEvent.row.item.cost);
   }
 
-  rowDoubleClick(rowEvent) {
-      alert('Double clicked: ' + rowEvent.row.item.organization_name);
-      alert('Double clicked: ' + rowEvent.row.item.program_name);
-      alert('Double clicked: ' + rowEvent.row.item.program_type);
-      alert('Double clicked: ' + rowEvent.row.item.program_city);
-      alert('Double clicked: ' + rowEvent.row.item.program_state);
-      alert('Double clicked: ' + rowEvent.row.item.program_start_date);
-      alert('Double clicked: ' + rowEvent.row.item.program_end_date);
-      alert('Double clicked: ' + rowEvent.row.item.program_phone);
-      alert('Double clicked: ' + rowEvent.row.item.program_website);
-      alert('Double clicked: ' + rowEvent.row.item.participant_gender);
-      alert('Double clicked: ' + rowEvent.row.item.participant_age_min);
-      alert('Double clicked: ' + rowEvent.row.item.participant_age_max);
-      alert('Double clicked: ' + rowEvent.row.item.cost);
-  }
   rowTooltip(item) { return item.program_name; }
+  // special params:
+  translations = <DataTableTranslations>{
+      indexColumn: 'Index column',
+      expandColumn: 'Expand column',
+      selectColumn: 'Select column',
+      paginationLimit: 'Max results',
+      paginationRange: 'Result range'
+  };
 }

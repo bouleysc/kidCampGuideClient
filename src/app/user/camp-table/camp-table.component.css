@@ -5,7 +5,12 @@
     -ms-user-select: none;
     user-select: none;
 }
-:host /deep/ .data-table > thead > tr > th,
-:host /deep/ .data-table > tbody > tr > td {
-	overflow: hidden;
+:host /deep/ .index-column,
+:host /deep/ .index-column-header,
+:host /deep/ .data-table-row  {
+    text-align: center;
+}
+
+:host /deep/ .data-table .data-table-row.selected {
+    background-color: #E4EDF9;
 }
