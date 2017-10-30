@@ -22,7 +22,8 @@
         "styles.css"
       ],
       "scripts": [
-        "../node_modules/jquery/dist/jquery.min.js"
+        "../node_modules/jquery/dist/jquery.min.js",
+        "../node_modules/angular-4-data-table/dist/index.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

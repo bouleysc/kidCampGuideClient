@@ -1,5 +1,91 @@
 <app-logout></app-logout>
 
-<p>
-  calendar works!
-</p>
+<div class="ui grid">
+  <div class="four wide column">
+    <div class="ui buttons">
+      <button
+        class="ui teal labeled icon button"
+        mwlCalendarPreviousView
+        [view]="view"
+        [(viewDate)]="viewDate"
+        (viewDateChange)="activeDayIsOpen = false">
+        <i class="chevron left icon"></i>
+        Previous
+      </button>
+      <button
+        class="ui button"
+        mwlCalendarToday
+        [(viewDate)]="viewDate">
+        Today
+      </button>
+      <button
+        class="ui teal right labeled icon button"
+        mwlCalendarNextView
+        [view]="view"
+        [(viewDate)]="viewDate"
+        (viewDateChange)="activeDayIsOpen = false">
+        Next
+        <i class="chevron right icon"></i>
+      </button>
+    </div>
+  </div>
+  <div class="eight wide column">
+    <h1 class="ui center aligned header calenderTitle">{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h1>
+  </div>
+  <div class="four wide column">
+    <div class="three ui buttons">
+      <button
+        class="ui teal button"
+        (click)="view = 'month'"
+        [class.active]="view === 'month'">
+        Month
+      </button>
+      <button
+        class="ui teal button"
+        (click)="view = 'week'"
+        [class.active]="view === 'week'">
+        Week
+      </button>
+      <button
+        class="ui teal button"
+        (click)="view = 'day'"
+        [class.active]="view === 'day'">
+        Day
+      </button>
+    </div>
+  </div>
+</div>
+<br>
+
+<div [ngSwitch]="view">
+  <mwl-calendar-month-view
+    *ngSwitchCase="'month'"
+    [viewDate]="viewDate"
+    [events]="events"
+    [refresh]="refresh"
+    [activeDayIsOpen]="activeDayIsOpen"
+    (dayClicked)="dayClicked($event.day)"
+    (beforeViewRender)="beforeMonthViewRender($event)"
+    (dayClicked)="dayClicked($event.day)"
+    (eventClicked)="handleEvent('Clicked', $event.event)"
+    (eventTimesChanged)="eventTimesChanged($event)">
+  </mwl-calendar-month-view>
+  <mwl-calendar-week-view
+    *ngSwitchCase="'week'"
+    [viewDate]="viewDate"
+    [events]="events"
+    [refresh]="refresh"
+    (eventClicked)="handleEvent('Clicked', $event.event)"
+    (eventTimesChanged)="eventTimesChanged($event)">
+  </mwl-calendar-week-view>
+  <mwl-calendar-day-view
+    *ngSwitchCase="'day'"
+    [viewDate]="viewDate"
+    [events]="events"
+    [dayStartHour]="6"
+    [dayEndHour]="18"
+    [refresh]="refresh"
+    (eventClicked)="handleEvent('Clicked', $event.event)"
+    (eventTimesChanged)="eventTimesChanged($event)">
+  </mwl-calendar-day-view>
+</div>

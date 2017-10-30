@@ -1,9 +1,9 @@
-import { Injectable }     from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { DataTableParams } from 'angular-4-data-table';
 import 'rxjs/add/operator/toPromise';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/do';
+// import 'rxjs/add/operator/map';
+// import 'rxjs/add/operator/do';
 
 
 const BASE_URL = 'http://localhost:8080';
@@ -29,14 +29,14 @@ function paramsToQueryString(params: DataTableParams) {
 
 
 @Injectable()
-export class CampsService {
+export class CampsService implements DataTableParams {
 
     constructor (private http: Http) {}
 
     query(params: DataTableParams) {
         return this.http.get(BASE_URL + '/camps?' + paramsToQueryString(params)).toPromise()
             .then((response: Response) => ({
-                camps: response.json(),
+                items: response.json(),
                 count: Number(response.headers.get('X-Total-Count'))
             }));
     }

@@ -1,103 +1,94 @@
 <app-logout></app-logout>
 
-<div style="max-width: 100%; margin: auto; padding: 25px;">
-  <h1 class="ui center aligned header tableTitle">CAMPS</h1>
-  <button class="ui teal button"><i class="add icon"></i>Add To Favorites</button>
-  <button class="ui blue button"><i class="add icon"></i>Add To Booked</button>
-    <data-table id="camps-grid"
-        [items]="camps"
-        [itemCount]="campCount"
+<div class="campTable">
+    <h1 class="ui center aligned header tableTitle">CAMPS</h1>
+    <div class="ui buttons toList">
+      <button type="button"  class="ui teal button" (click)="onFavorited()"><i class="add icon"></i>Add To Favorites</button>
+      <button type="button" class="ui blue button" (click)="onBooked()"><i class="add icon"></i>Add To Booked</button>
+    </div>
+    <data-table class="ui striped table center aligned" id="camps-grid"
+        [items]="items"
+        [itemCount]="itemCount"
         (reload)="reloadItems($event)"
         (rowClick)="rowClick($event)"
-        [rowTooltip]="rowTooltip"
-        [expandableRows]="true"
-        [translations]="translations"
         [limit]="10"
-        [sortAsc]="true"
-        [selectOnRowClick]="true"
+        [sortAsc]="false"
+        [pagination]="false"
         [selectColumn]="true"
         [multiSelect]="true"
-        [pagination]="false"
         [substituteRows]="false"
-        [indexColumn]="'false'"
-        [indexColumnHeader]="'#'"
-        >
-        <ng-template #dataTableExpand let-item="item">
-            <i class="info circle icon"></i>
-            <div [textContent]="'DESCRIPTION: ' + item.program_description" style="padding: 5px; background-color: #c3e2db;">Description: </div>
-        </ng-template>
-        <data-table-column
-            [property]="'organization_name'"
-            [header]="'Organization Name'"
-            [resizable]="true">
-        </data-table-column>
-        <data-table-column
-            [property]="'program_name'"
-            [header]="'Program Name'"
-            [sortable]="true"
-            [resizable]="true">
-        </data-table-column>
-        <data-table-column
-            [property]="'program_type'"
-            [header]="'Program Type'"
-            [resizable]="true">
-        </data-table-column>
-        <data-table-column
-            [property]="'program_city'"
-            [header]="'Program City'"
-            [resizable]="true">
-        </data-table-column>
-        <data-table-column
-            [property]="'program_state'"
-            [header]="'Program State'"
-            [resizable]="true">
-        </data-table-column>
-        <data-table-column
-            [property]="'program_start_date'"
-            [header]="'Program Start Date'">
-            <ng-template #dataTableCell let-item="item">
-                <span>{{item.program_start_date | date:'MM-dd-yyyy'}}</span>
-            </ng-template>
-        </data-table-column>
-        <data-table-column
-            [property]="'program_end_date'"
-            [header]="'Program End Date'">
-            <ng-template #dataTableCell let-item="item">
-                <span>{{item.program_end_date | date:'MM-dd-yyyy'}}</span>
-            </ng-template>
-        </data-table-column>
-        <data-table-column
-            property="program_phone"
-            header="Program Number/Email"
-            [resizable]="true">
-        </data-table-column>
-        <data-table-column
-          [header]="'Program Website'">
-          <ng-template #dataTableCell let-item="item">
-            <a href="{{item.program_website}}" class="btn btn-sm btn-default">Website Link</a>
-          </ng-template>
-        </data-table-column>
-        <data-table-column
-            [property]="'participant_gender'"
-            [header]="'Participant Gender'"
-            [resizable]="true">
-        </data-table-column>
-        <data-table-column
-            [property]="'participant_age_min'"
-            [header]="'Participant Minimum Age'"
-            [resizable]="true">
-        </data-table-column>
-        <data-table-column
-            [property]="'participant_age_max'"
-            [header]="'Participant Maximum Age'"
-            [resizable]="true">
-        </data-table-column>
-        <data-table-column
-            [property]="'cost'"
-            [header]="'Program Cost'"
-            [resizable]="true">
-        </data-table-column>
-    </data-table>
-    <button class="ui teal button"><i class="add icon"></i>Add To Favorites</button>
-    <button class="ui blue button"><i class="add icon"></i>Add To Booked</button>
+        [expandableRows]="true"
+        [translations]="translations"
+        [selectOnRowClick]="true"
+        [indexColumn]="false">
+
+    <ng-template #dataTableExpand let-item="item">
+      <i class="info circle icon"></i>
+      <div [textContent]="'DESCRIPTION: ' + item.program_description" style="padding: 5px; background-color: #c3e2db;"></div>
+    </ng-template>
+    <data-table-column
+      property="organization_name"
+      header="Organization Name">
+    </data-table-column>
+    <data-table-column
+      property="program_name"
+      header="Program Name">
+    </data-table-column>
+    <data-table-column
+      property="program_type"
+      header="Program Type">
+    </data-table-column>
+    <data-table-column
+      property="program_city"
+      header="Program City">
+    </data-table-column>
+    <data-table-column
+      property="program_state"
+      header="Program State">
+    </data-table-column>
+    <data-table-column
+      property="program_start_date"
+      header="Program Start Date">
+      <ng-template #dataTableCell let-item="item">
+        <span>{{item.program_start_date | date:'shortDate'}}</span>
+      </ng-template>
+    </data-table-column>
+    <data-table-column
+      property="program_end_date"
+      header="Program End Date">
+      <ng-template #dataTableCell let-item="item">
+        <span>{{item.program_end_date | date:'shortDate'}}</span>
+      </ng-template>
+    </data-table-column>
+    <data-table-column
+      property="program_phone"
+      header="Program Phone Number/Email">
+    </data-table-column>
+    <data-table-column
+      header="Program Website">
+      <ng-template #dataTableCell let-item="item">
+        <a href="{{item.program_website}}">Website Link</a>
+      </ng-template>
+    </data-table-column>
+    <data-table-column
+      property="participant_gender"
+      header="Participant Gender">
+    </data-table-column>
+    <data-table-column
+      property="participant_age_min"
+      header="Participant Minimum Age">
+    </data-table-column>
+    <data-table-column
+      property="participant_age_max"
+      header="Participant Maximum Age">
+    </data-table-column>
+    <data-table-column
+      property="cost"
+      header="Program Cost">
+    </data-table-column>
+  </data-table>
+  <div class="ui buttons toList">
+    <button type="button"  class="ui teal button" (click)="onFavorited()"><i class="add icon"></i>Add To Favorites</button>
+    <button type="button" class="ui blue button" (click)="onBooked()"><i class="add icon"></i>Add To Booked</button>
+  </div>
 </div>

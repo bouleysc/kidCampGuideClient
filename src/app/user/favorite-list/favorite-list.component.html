@@ -1,9 +1,8 @@
 <app-logout></app-logout>
 <h1 class="ui center aligned header tableTitle">Favorite List</h1>
-<table class="ui compact celled definition table">
+<table class="ui teal center aligned compact celled table">
   <thead>
     <tr>
-      <th></th>
       <th>Program Name</th>
       <th>Program Type</th>
       <th>Program City</th>
@@ -14,40 +13,24 @@
       <th>Program Phone Number/ Email</th>
       <th>Program Cost</th>
       <th>Program Website</th>
-      <th>Moved to Booked</th>
+      <th>Move to Booked</th>
       <th>Remove from List</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody *ngFor="let favoriteCamp of favoriteCamps">
     <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{favoriteCamp.program_name}}</td>
+      <td>{{favoriteCamp.program_type}}</td>
+      <td>{{favoriteCamp.program_city}}</td>
+      <td>{{favoriteCamp.program_start_date | date:'shortDate'}}</td>
+      <td>{{favoriteCamp.program_end_date | date:'shortDate'}}</td>
+      <td>{{favoriteCamp.program_start_time}}</td>
+      <td>{{favoriteCamp.program_end_time}}</td>
+      <td>{{favoriteCamp.program_phone}}</td>
+      <td>${{favoriteCamp.cost}}</td>
+      <td><a href="{{favoriteCamp.program_website}}">Website Link</a></td>
+      <td><button class="tiny ui teal button">Move</button></td>
+      <td><button class="tiny ui red button">Remove</button></td>
     </tr>
   </tbody>
 </table>

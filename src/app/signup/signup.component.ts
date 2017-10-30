@@ -33,7 +33,8 @@ export class SignupComponent implements OnInit {
         localStorage.setItem('token', data.data)
         this.router.navigate(['/user/:id'])
       },
-      (error) => console.log(error)
+      (error) => {console.log(error)}
+
     )
   }
 }

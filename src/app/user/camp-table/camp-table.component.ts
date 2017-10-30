@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { CampsService } from 'app/camps.service';
+import { UserService } from 'app/user.service';
+import { Response } from '@angular/http';
 import { DataTable, DataTableTranslations, DataTableResource } from 'angular-4-data-table';
 
 
@@ -9,40 +11,32 @@ import { DataTable, DataTableTranslations, DataTableResource } from 'angular-4-d
   styleUrls: ['./camp-table.component.css']
 })
 export class CampTableComponent implements OnInit {
-    camps = [];
-    campCount = 0;
-    campResource = new DataTableResource(this.camps);
-    @ViewChild(DataTable) campsTable: DataTable;
-    constructor(private campsService: CampsService) {
-      this.campResource.count().then(count => this.campCount = count)
-    }
+
+    items = [];
+    itemCount = 0;
+    itemResource = new DataTableResource(this.items);
+    selectedItems=[]
+    token
+
+    @ViewChild(DataTable) campsTable;
+
+    constructor(private campsService: CampsService, private userService: UserService) {}
 
     ngOnInit() {
-      this.campsService.query(this.camps)
-      }
+      this.token = localStorage.getItem('token');
+      this.itemResource.count().then(count => this.itemCount = count)
+    }
 
     reloadItems(params) {
-      this.campResource.query(params).then(camps => this.camps = camps);
-        this.campsService.query(params).then(result => {
-            this.camps = result.camps;
-            this.campCount = result.count;
-        });
+      this.itemResource.query(params).then(items => this.items = items);
+      this.campsService.query(params).then(result => {
+          this.items = result.items;
+          this.itemCount = result.count;
+      });
     }
     // special properties:
   rowClick(rowEvent) {
-      console.log('Clicked: ' + rowEvent.row.item.organization_name);
-      console.log('Clicked: ' + rowEvent.row.item.program_name);
-      console.log('Clicked: ' + rowEvent.row.item.program_type);
-      console.log('Clicked: ' + rowEvent.row.item.program_city);
-      console.log('Clicked: ' + rowEvent.row.item.program_state);
-      console.log('Clicked: ' + rowEvent.row.item.program_start_date);
-      console.log('Clicked: ' + rowEvent.row.item.program_end_date);
-      console.log('Clicked: ' + rowEvent.row.item.program_phone);
-      console.log('Clicked: ' + rowEvent.row.item.program_website);
-      console.log('Clicked: ' + rowEvent.row.item.participant_gender);
-      console.log('Clicked: ' + rowEvent.row.item.participant_age_min);
-      console.log('Clicked: ' + rowEvent.row.item.participant_age_max);
-      console.log('Clicked: ' + rowEvent.row.item.cost);
+    this.selectedItems.push(rowEvent.row.item)
   }
 
   rowTooltip(item) { return item.program_name; }
@@ -54,4 +48,38 @@ export class CampTableComponent implements OnInit {
       paginationLimit: 'Max results',
       paginationRange: 'Result range'
   };
+
+  onBooked(){
+    const parsedToken = this.userService.parsedJWT(this.token);
+    const id = parsedToken;
+    for(let i = 0; i < this.selectedItems.length; i++) {
+      this.onAddBookedCampByUser(id,this.selectedItems[i])
+    }
+  }
+
+  onAddBookedCampByUser(id,camp){
+    this.userService.addBookedCampByUser(id,camp)
+    .subscribe(
+      (response: Response) => {
+        response.json()
+      }
+    )
+  }
+
+  onFavorited(){
+    const parsedToken = this.userService.parsedJWT(this.token);
+    const id = parsedToken;
+    for(let i = 0; i < this.selectedItems.length; i++) {
+      this.onAddFavoriteCampByUser(id,this.selectedItems[i])
+    }
+  }
+
+  onAddFavoriteCampByUser(id,camp){
+    this.userService.addFavoriteCampByUser(id,camp)
+    .subscribe(
+      (response: Response) => {
+        response.json()
+      }
+    )
+  }
 }

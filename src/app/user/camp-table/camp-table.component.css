@@ -1,14 +1,13 @@
-:host /deep/ .data-table-row {
+
+:host /deep/ .index-column,
+:host /deep/ .index-column-header,
+:host /deep/ .data-table-row  {
+    text-align: center;
     cursor: pointer;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-}
-:host /deep/ .index-column,
-:host /deep/ .index-column-header,
-:host /deep/ .data-table-row  {
-    text-align: center;
 }
 
 :host /deep/ .data-table .data-table-row.selected {

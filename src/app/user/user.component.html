@@ -1,13 +1,11 @@
 <app-logout></app-logout>
 
-<div class="ui raised two cards container">
+<div class="ui raised two cards container center aligned">
   <div class="teal card">
     <div class="content">
-      <div class="header">See All Camps Here!</div>
+      <div class="ui header cardHeader">See All Camps</div>
       <div class="description">
-        A table that show you a list of our camps and allows you sort and filter
-        the camps based on cost, location, participant requirements, type, dates,
-        and times.
+        A list of all of our youth camps.
       </div>
     </div>
     <div routerLink="/user/:id/camps" class="ui bottom attached button">
@@ -16,9 +14,9 @@
   </div>
   <div class="teal card">
     <div class="content">
-      <div class="header">List of Favorites</div>
+      <div class="ui header cardHeader">Favorites List</div>
       <div class="description">
-        Your custom favorites list that you created.
+        Your custom 'favorites' list that you created.
       </div>
     </div>
     <div routerLink="/user/:id/favorites" class="ui bottom attached button">
@@ -27,7 +25,7 @@
   </div>
   <div class="teal card">
     <div class="content">
-      <div class="header">List of Booked</div>
+      <div class="ui header cardHeader">Booked List</div>
       <div class="description">
         Your list of camps that you've already booked.
       </div>
@@ -38,10 +36,9 @@
   </div>
   <div class="teal card">
     <div class="content">
-      <div class="header">Calendar of Favorites/ Booked</div>
+      <div class="ui header cardHeader">Favorites/ Booked Calendar</div>
       <div class="description">
-        A calendar that lays out all of the dates of your 'favorite' camps
-        (transparent color) and 'booked' camps (solid color).
+        Your 'favorite' camps and 'booked' camps in calendar form.
       </div>
     </div>
     <div routerLink="/user/:id/calendar" class="ui bottom attached button">
