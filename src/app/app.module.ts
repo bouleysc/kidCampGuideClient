@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { DataTableModule } from 'angular-4-data-table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CalendarModule } from 'angular-calendar';
-
+import { DatePipe } from '@angular/common';
 
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -53,7 +53,7 @@ import { CalendarComponent } from './user/calendar/calendar.component';
     BrowserAnimationsModule,
     CalendarModule.forRoot()
   ],
-  providers: [AuthService, CampsService, UserService],
+  providers: [AuthService, CampsService, UserService, DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

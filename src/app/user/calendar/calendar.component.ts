@@ -2,35 +2,29 @@ import {  Component,
           ChangeDetectionStrategy,
           ViewEncapsulation} from '@angular/core';
 import {  CalendarEvent,
-          CalendarMonthViewDay,
-          CalendarEventAction,
-          CalendarEventTimesChangedEvent } from 'angular-calendar';
-          import {
-            startOfDay,
-            endOfDay,
-            subDays,
-            addDays,
-            endOfMonth,
-            isSameDay,
-            isSameMonth,
-            addHours
-          } from 'date-fns';
+          CalendarMonthViewDay } from 'angular-calendar';
+import {  startOfDay,
+          endOfDay,
+          subDays,
+          addDays,
+          endOfMonth,
+          isSameDay,
+          isSameMonth,
+          addHours  } from 'date-fns';
 import { UserService } from 'app/user.service';
+import { DatePipe } from '@angular/common';
+import * as moment from 'moment';
 import { Response } from '@angular/http';
 import 'angular-calendar/dist/css/angular-calendar.css';
 
 const colors: any = {
-  red: {
-    primary: '#ad2121',
-    secondary: '#FAE3E3'
+  purple: {
+    primary: '#6e31d8',
+    secondary: '#380e82'
   },
   blue: {
-    primary: '#1e90ff',
-    secondary: '#D1E8FF'
-  },
-  yellow: {
-    primary: '#e3bc08',
-    secondary: '#FDF1BA'
+    primary: '#113cd8',
+    secondary: 'rgba(54, 111, 245, 0.6)'
   }
 };
 
@@ -39,6 +33,7 @@ const colors: any = {
   templateUrl: './calendar.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
+  providers: [DatePipe],
   styleUrls: ['./calendar.component.css']
 })
 
@@ -49,47 +44,51 @@ export class CalendarComponent {
   token
   // events$: Observable<Array<CalendarEvent<{ this.addingBookedEvents() }>>>;
 
-  events: CalendarEvent[] = [
-    {
-      start: subDays(startOfDay(new Date()), 1),
-      end: addDays(new Date(), 1),
-      title: 'A 3 day event',
-      color: colors.red
-    },
-    {
-      start: startOfDay(new Date()),
-      title: 'An event with no end date',
-      color: colors.yellow
-    },
-    {
-      start: subDays(endOfMonth(new Date()), 3),
-      end: addDays(endOfMonth(new Date()), 3),
-      title: 'A long event that spans 2 months',
-      color: colors.blue
-    },
-    {
-      start: addHours(startOfDay(new Date()), 2),
-      end: new Date(),
-      title: 'A draggable and resizable event',
-      color: colors.yellow
-    }
-  ];
+  events: CalendarEvent[] = [];
 
   activeDayIsOpen: boolean = true;
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, private datePipe: DatePipe) {}
 
   ngOnInit() {
     this.token = localStorage.getItem('token');
-    this.addingBookedEvents()
+    this.addingBookedCamps()
+    this.addingFavoritedCamps()
   }
-  addingBookedEvents() {
+
+  addingFavoritedCamps() {
+    const parsedToken = this.userService.parsedJWT(this.token);
+    const id = parsedToken;
+    this.userService.getFavoriteCampsByUser(id)
+    .subscribe(
+      (response: Response) => {
+        let data = response.json()
+        data.forEach(camp => {
+          this.events.push({
+            start: new Date(camp.program_start_date),
+            end: new Date(camp.program_end_date),
+            title: camp.program_name,
+            color: colors.blue
+          })
+        })
+      })
+    }
+
+  addingBookedCamps() {
     const parsedToken = this.userService.parsedJWT(this.token);
     const id = parsedToken;
     this.userService.getBookedCampsByUser(id)
     .subscribe(
       (response: Response) => {
-        console.log(response.json())
+        let data = response.json()
+        data.forEach(camp => {
+          this.events.push({
+            start: new Date(camp.program_start_date),
+            end: new Date(camp.program_end_date),
+            title: camp.program_name,
+            color: colors.purple
+          })
+        })
       })
     }
 

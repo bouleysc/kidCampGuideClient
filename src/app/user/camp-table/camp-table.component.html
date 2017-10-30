@@ -6,7 +6,7 @@
       <button type="button"  class="ui teal button" (click)="onFavorited()"><i class="add icon"></i>Add To Favorites</button>
       <button type="button" class="ui blue button" (click)="onBooked()"><i class="add icon"></i>Add To Booked</button>
     </div>
-    <data-table class="ui striped table center aligned" id="camps-grid"
+    <data-table class="center aligned ui table" id="camps-grid"
         [items]="items"
         [itemCount]="itemCount"
         (reload)="reloadItems($event)"
@@ -20,15 +20,16 @@
         [expandableRows]="true"
         [translations]="translations"
         [selectOnRowClick]="true"
-        [indexColumn]="false">
-
+        >
+<!-- [indexColumn]="false" -->
     <ng-template #dataTableExpand let-item="item">
       <i class="info circle icon"></i>
       <div [textContent]="'DESCRIPTION: ' + item.program_description" style="padding: 5px; background-color: #c3e2db;"></div>
     </ng-template>
     <data-table-column
       property="organization_name"
-      header="Organization Name">
+      header="Organization Name"
+      resizable="true">
     </data-table-column>
     <data-table-column
       property="program_name"

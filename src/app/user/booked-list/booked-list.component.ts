@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'app/user.service';
 import { Response } from '@angular/http';
-import { DatePipe } from '@angular/common';
+// import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-booked-list',
@@ -33,10 +33,10 @@ export class BookedListComponent implements OnInit {
   }
 
   onRemoveBookedCampByUser(camp){
-    console.log(camp.camp_id)
+    console.log(camp)
     const parsedToken = this.userService.parsedJWT(this.token);
     const id = parsedToken.id
-    this.userService.removeBookedCampsByUser(id, camp)
+    this.userService.removeBookedCampsByUser(id, camp.camp_id)
     .subscribe(
       (response: Response) => {
         response.json()
