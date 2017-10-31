@@ -2,11 +2,9 @@ import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { DataTableParams } from 'angular-4-data-table';
 import 'rxjs/add/operator/toPromise';
-// import 'rxjs/add/operator/map';
-// import 'rxjs/add/operator/do';
 
-
-const BASE_URL = 'http://localhost:8080';
+const BASE_URL = 'https://rocky-crag-73141.herokuapp.com'
+// const BASE_URL = 'http://localhost:8080';
 
 function paramsToQueryString(params: DataTableParams) {
     let result = [];

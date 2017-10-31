@@ -30,7 +30,7 @@
       <td>${{favoriteCamp.cost}}</td>
       <td><a href="{{favoriteCamp.program_website}}">Website Link</a></td>
       <td><button class="tiny ui teal button">Move</button></td>
-      <td><button class="tiny ui red button">Remove</button></td>
+      <td><button class="tiny ui red button" (click)="onRemoveFavoriteCampByUser(favoriteCamp)">Remove</button></td>
     </tr>
   </tbody>
 </table>

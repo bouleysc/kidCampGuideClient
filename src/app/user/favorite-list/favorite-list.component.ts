@@ -9,10 +9,11 @@ import { Response } from '@angular/http';
 })
 export class FavoriteListComponent implements OnInit {
   favoriteCamps = [];
-
+  token
   constructor(private userService: UserService) { }
 
   ngOnInit() {
+    this.token = localStorage.getItem('token');
     this.onGetFavoriteCamps()
   }
   onGetFavoriteCamps() {
@@ -26,6 +27,16 @@ export class FavoriteListComponent implements OnInit {
         data.forEach(camp => {
           this.favoriteCamps.push(camp);
         })
+      }
+    )
+  }
+
+  onRemoveFavoriteCampByUser(camp){
+    const id = this.userService.parsedJWT(this.token);
+    this.userService.removeFavoriteCampsByUser(id, camp)
+    .subscribe(
+      (response: Response) => {
+        response.json()
       }
     )
   }

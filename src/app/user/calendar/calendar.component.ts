@@ -19,8 +19,8 @@ import 'angular-calendar/dist/css/angular-calendar.css';
 
 const colors: any = {
   purple: {
-    primary: '#6e31d8',
-    secondary: '#380e82'
+    primary: '#937bce',
+    secondary: '#6239c6'
   },
   blue: {
     primary: '#113cd8',
@@ -42,7 +42,6 @@ export class CalendarComponent {
   view: string = 'month';
   selectedDay: CalendarMonthViewDay;
   token
-  // events$: Observable<Array<CalendarEvent<{ this.addingBookedEvents() }>>>;
 
   events: CalendarEvent[] = [];
 

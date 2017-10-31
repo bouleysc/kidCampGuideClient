@@ -7,9 +7,9 @@ import { Router } from '@angular/router';
 export class AuthService {
   constructor(private http: Http, private router: Router){}
   signup(body: any) {
-    return this.http.post('http://localhost:8080/signup', body)
+    return this.http.post('https://rocky-crag-73141.herokuapp.com/signup', body)
   }
   login(body: any) {
-    return this.http.post('http://localhost:8080/login', body)
+    return this.http.post('https://rocky-crag-73141.herokuapp.com/login', body)
   }
 }
