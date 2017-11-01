@@ -37,6 +37,12 @@ export class FavoriteListComponent implements OnInit {
     .subscribe(
       (response: Response) => {
         response.json()
+        for (var i=0; i<this.favoriteCamps.length; i++) {
+          if(camp.camp_id==this.favoriteCamps[i].camp_id) {
+            this.favoriteCamps.splice(i, 1)
+            i--
+          }
+        }        
       }
     )
   }

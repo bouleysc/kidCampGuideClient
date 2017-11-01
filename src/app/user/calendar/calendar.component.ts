@@ -10,6 +10,8 @@ import {  startOfDay,
           endOfMonth,
           isSameDay,
           isSameMonth,
+          setHours,
+          differenceInHours,
           addHours  } from 'date-fns';
 import { UserService } from 'app/user.service';
 import { DatePipe } from '@angular/common';
@@ -18,13 +20,13 @@ import { Response } from '@angular/http';
 import 'angular-calendar/dist/css/angular-calendar.css';
 
 const colors: any = {
-  purple: {
+  book: {
     primary: '#937bce',
-    secondary: '#6239c6'
+    secondary: 'rgba(54, 111, 245, 0.4)'
   },
-  blue: {
+  fav: {
     primary: '#113cd8',
-    secondary: 'rgba(54, 111, 245, 0.6)'
+    secondary: 'rgb(9, 3, 99)'
   }
 };
 
@@ -43,7 +45,20 @@ export class CalendarComponent {
   selectedDay: CalendarMonthViewDay;
   token
 
-  events: CalendarEvent[] = [];
+  events: CalendarEvent[] = [
+    {
+      title: 'S.O.A.R. Program',
+      color: colors.fav,
+      start: new Date(),
+      end: addDays(new Date(), 1),
+    },
+    {
+      title: 'S.O.A.R. Program',
+      color: colors.book,
+      start: new Date(),
+      end: addDays(new Date(), 1)
+    }
+  ];
 
   activeDayIsOpen: boolean = true;
 
@@ -63,11 +78,15 @@ export class CalendarComponent {
       (response: Response) => {
         let data = response.json()
         data.forEach(camp => {
+          var startDate = new Date(camp.program_start_date)
+          var endDate = new Date(camp.program_end_date)
+          console.log(new Date(endDate.setHours(camp.program_end_time.split(':')[0])))
           this.events.push({
-            start: new Date(camp.program_start_date),
-            end: new Date(camp.program_end_date),
+            start: new Date(startDate.setHours(camp.program_start_time.split(':')[0])),
+            end: new Date(endDate.setHours(camp.program_end_time.split(':')[0])),
+            allDay: camp.full_day,
             title: camp.program_name,
-            color: colors.blue
+            color: colors.fav
           })
         })
       })
@@ -85,7 +104,8 @@ export class CalendarComponent {
             start: new Date(camp.program_start_date),
             end: new Date(camp.program_end_date),
             title: camp.program_name,
-            color: colors.purple
+            color: colors.book
+
           })
         })
       })

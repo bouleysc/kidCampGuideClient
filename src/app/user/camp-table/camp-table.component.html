@@ -3,8 +3,14 @@
 <div class="campTable">
     <h1 class="ui center aligned header tableTitle">CAMPS</h1>
     <div class="ui buttons toList">
-      <button type="button"  class="ui teal button" (click)="onFavorited()"><i class="add icon"></i>Add To Favorites</button>
-      <button type="button" class="ui blue button" (click)="onBooked()"><i class="add icon"></i>Add To Booked</button>
+      <button type="button" class="ui grey button" (click)="onFavorited()"><i class="add icon"></i>Add To Favorites</button>
+      <button type="button" class="ui primary button" (click)="onBooked()"><i class="add icon"></i>Add To Booked</button>
+    </div>
+    <br>
+    <div *ngIf="showSuccessMsg" class="ui blue compact message success">
+      <div class="header">
+        Camp(s) Added!
+      </div>
     </div>
     <data-table class="center aligned ui table" id="camps-grid"
         [items]="items"
@@ -23,12 +29,11 @@
         >
 <!-- [indexColumn]="false" -->
     <ng-template #dataTableExpand let-item="item">
-      <i class="info circle icon"></i>
-      <div [textContent]="'DESCRIPTION: ' + item.program_description" style="padding: 5px; background-color: #c3e2db;"></div>
+      <b><div [textContent]="'DESCRIPTION: ' + item.program_description" style="padding: 5px; background-color: #9FDFFA;"></div></b>
     </ng-template>
     <data-table-column
       property="organization_name"
-      header="Organization Name"
+      header="Company Name"
       resizable="true">
     </data-table-column>
     <data-table-column
@@ -63,7 +68,7 @@
     </data-table-column>
     <data-table-column
       property="program_phone"
-      header="Program Phone Number/Email">
+      header="Program Phone Number/ Email">
     </data-table-column>
     <data-table-column
       header="Program Website">
@@ -89,7 +94,13 @@
     </data-table-column>
   </data-table>
   <div class="ui buttons toList">
-    <button type="button"  class="ui teal button" (click)="onFavorited()"><i class="add icon"></i>Add To Favorites</button>
+    <button type="button"  class="ui grey button" (click)="onFavorited()"><i class="add icon"></i>Add To Favorites</button>
     <button type="button" class="ui blue button" (click)="onBooked()"><i class="add icon"></i>Add To Booked</button>
+  </div>
+  <br>
+  <div *ngIf="showSuccessMsg" class="ui blue compact message success">
+    <h1 class="ui header">
+      Camp Added!
+    </h1>
   </div>
 </div>

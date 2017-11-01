@@ -2,8 +2,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { CampsService } from 'app/camps.service';
 import { UserService } from 'app/user.service';
 import { Response } from '@angular/http';
+import { Router } from '@angular/router';
 import { DataTable, DataTableTranslations, DataTableResource } from 'angular-4-data-table';
-
+import { NgSemanticModule } from 'ng-semantic';
 
 @Component({
   selector: 'app-camp-table',
@@ -11,7 +12,7 @@ import { DataTable, DataTableTranslations, DataTableResource } from 'angular-4-d
   styleUrls: ['./camp-table.component.css']
 })
 export class CampTableComponent implements OnInit {
-
+    showSuccessMsg = false;
     items = [];
     itemCount = 0;
     itemResource = new DataTableResource(this.items);
@@ -20,7 +21,7 @@ export class CampTableComponent implements OnInit {
 
     @ViewChild(DataTable) campsTable;
 
-    constructor(private campsService: CampsService, private userService: UserService) {}
+    constructor(private campsService: CampsService, private userService: UserService, private router: Router) {}
 
     ngOnInit() {
       this.token = localStorage.getItem('token');
@@ -34,13 +35,13 @@ export class CampTableComponent implements OnInit {
           this.itemCount = result.count;
       });
     }
-    // special properties:
+
   rowClick(rowEvent) {
     this.selectedItems.push(rowEvent.row.item)
   }
 
   rowTooltip(item) { return item.program_name; }
-  // special params:
+
   translations = <DataTableTranslations>{
       indexColumn: 'Index column',
       expandColumn: 'Expand column',
@@ -55,6 +56,10 @@ export class CampTableComponent implements OnInit {
     for(let i = 0; i < this.selectedItems.length; i++) {
       this.onAddBookedCampByUser(id,this.selectedItems[i])
     }
+    this.showSuccessMsg=true
+    setTimeout(()=> {
+      this.showSuccessMsg=false
+    }, 1000)
   }
 
   onAddBookedCampByUser(id,camp){
@@ -72,6 +77,10 @@ export class CampTableComponent implements OnInit {
     for(let i = 0; i < this.selectedItems.length; i++) {
       this.onAddFavoriteCampByUser(id,this.selectedItems[i])
     }
+    this.showSuccessMsg=true
+    setTimeout(()=> {
+      this.showSuccessMsg=false
+    }, 1000)
   }
 
   onAddFavoriteCampByUser(id,camp){

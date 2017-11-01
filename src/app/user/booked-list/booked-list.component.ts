@@ -37,6 +37,12 @@ export class BookedListComponent implements OnInit {
     .subscribe(
       (response: Response) => {
         response.json()
+        for (var i=0; i<this.bookedCamps.length; i++) {
+          if(camp.camp_id==this.bookedCamps[i].camp_id) {
+            this.bookedCamps.splice(i, 1)
+            i--
+          }
+        }
       }
     )
   }

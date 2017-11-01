@@ -1,10 +1,10 @@
 <app-header></app-header>
 
-<div class="ui attached inverted message container">
+<div class="ui attached inverted message container auth">
   <div class="header">
     <h2 class="ui dividing inverted">Sign-up Today!</h2>
   </div>
-  <form class="ui huge inverted form attached fluid segment" (ngSubmit)=OnSubmitSignup(f) #f="ngForm">
+  <form class="ui huge inverted auth form attached fluid segment" (ngSubmit)=OnSubmitSignup(f) #f="ngForm">
     <div class="field">
       <label>Name:</label>
       <div class="two fields">
@@ -28,7 +28,7 @@
         </div>
       </div>
     </div>
-    <a routerLink="/login" routerLinkActive="active"  class="redirectToLogIn">Already A Member?</a>
+    <a routerLink="/login" routerLinkActive="active" class="redirectToLogIn">Already A Member?</a>
     <button class="ui inverted button" type="submit">Submit</button>
   </form>
 </div>

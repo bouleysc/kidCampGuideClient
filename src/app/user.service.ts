@@ -1,25 +1,27 @@
 import { Injectable } from '@angular/core';
 import { Http, RequestOptions, Headers } from '@angular/http';
-const BASE_URL = 'https://rocky-crag-73141.herokuapp.com/';
+
+// const BASE_URL = 'https://rocky-crag-73141.herokuapp.com';
+const BASE_URL = 'http://localhost:8080';
 
 @Injectable()
 export class UserService {
   constructor(private http: Http) {}
 
-  getUsers() {
-    return this.http.get('https://rocky-crag-73141.herokuapp.com/user/')
-  }
+  // getUsers() {
+  //   return this.http.get(BASE_URL + '/user/')
+  // }
 
   getBookedCampsByUser(id) {
-    return this.http.get(`https://rocky-crag-73141.herokuapp.com/user/${id}/booked`)
+    return this.http.get(BASE_URL + `/user/${id}/booked`)
   }
 
   getFavoriteCampsByUser(id) {
-    return this.http.get(`https://rocky-crag-73141.herokuapp.com/user/${id}/favorites`)
+    return this.http.get(BASE_URL + `/user/${id}/favorites`)
   }
 
   addBookedCampByUser(id,body){
-    return this.http.post(`https://rocky-crag-73141.herokuapp.com/user/${id}/booked`, body)
+    return this.http.post(BASE_URL +`/user/${id}/booked`, body)
   }
 
   removeBookedCampsByUser(id,body){
@@ -28,11 +30,11 @@ export class UserService {
       headers: headers,
       body: body
     })
-    return this.http.delete(`https://rocky-crag-73141.herokuapp.com/user/${id}/booked`, options)
+    return this.http.delete(BASE_URL + `/user/${id}/booked`, options)
   }
 
   addFavoriteCampByUser(id,body){
-    return this.http.post(`https://rocky-crag-73141.herokuapp.com/user/${id}/favorites`, body)
+    return this.http.post(BASE_URL + `/user/${id}/favorites`, body)
   }
 
   removeFavoriteCampsByUser(id,body){
@@ -41,7 +43,7 @@ export class UserService {
       headers: headers,
       body: body
     })
-    return this.http.delete(`https://rocky-crag-73141.herokuapp.com/user/${id}/favorites`, options)
+    return this.http.delete(BASE_URL + `/user/${id}/favorites`, options)
   }
 
   parsedJWT(token) {

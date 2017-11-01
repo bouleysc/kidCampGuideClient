@@ -1,24 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
 body {
-  background-color: #d6dbda;
+  background-color: #e8eaed;
+
 }
 
 .menu {
   background-color: #94C3E9 !important;
 }
 
+.auth {
+  background-color: grey !important;
+}
+
 .companyName {
   font-family: 'Luckiest Guy', cursive !important;
   font-size: 4em !important;
   margin-bottom: 0 !important;
-  color: #01916f !important;
+  color: #AF2729 !important;
 }
 
 .campTable {
   margin-top: 0 !important;
 }
 
-.toList {
+.toList, .success {
   margin: 0 5px !important;
 }
 
@@ -27,12 +32,13 @@ button {
 }
 
 .redirectToLogIn, .redirectToSignUp {
+  color: black;
   text-decoration: underline;
   margin-right: 1em !important;
 }
 
 .redirectToLogIn:hover, .redirectToSignUp:hover {
-  color: #41c7f4;
+  color: #fff;
   text-decoration: underline;
 }
 
@@ -43,22 +49,29 @@ button {
 }
 
 .card, .companyInfo {
-  background-color: #93e2d5 !important;
+  background-color: #9C9C9E !important;
   margin-top: 5% !important;
 }
 
 .cardHeader {
   font-family: 'Saira', sans-serif !important;
+  font-size: 1.75em !important;
+  color: #AF2729 !important;
 }
 
 .companyInfo {
   margin: 5% 10% !important;
-  background-color: #c3e2db !important;
+  color: #fff;
 }
 
 .tableTitle, .calenderTitle {
   font-size: 4em !important;
   font-family: 'Saira', sans-serif !important;
   text-decoration: underline;
+  color: #737373 !important;
   margin: 30px 0 !important;
+}
+
+.footer {
+  margin-top: 20px !important;
 }

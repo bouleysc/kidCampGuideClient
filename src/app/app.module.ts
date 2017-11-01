@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
+// import { NgSemanticModule } from 'ng-semantic/ng-semantic';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { MomentModule } from 'angular2-moment';
 
 import { AppComponent } from './app.component';
 import { DataTableModule } from 'angular-4-data-table';
@@ -27,6 +29,7 @@ import { HeaderComponent } from './header/header.component';
 import { FavoriteListComponent } from './user/favorite-list/favorite-list.component';
 import { BookedListComponent } from './user/booked-list/booked-list.component';
 import { CalendarComponent } from './user/calendar/calendar.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -41,14 +44,17 @@ import { CalendarComponent } from './user/calendar/calendar.component';
     HeaderComponent,
     FavoriteListComponent,
     BookedListComponent,
-    CalendarComponent
+    CalendarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
+    // NgSemanticModule,
     FormsModule,
     HttpModule,
     DataTableModule,
     CommonModule,
+    MomentModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     CalendarModule.forRoot()

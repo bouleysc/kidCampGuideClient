@@ -1,6 +1,6 @@
 <app-logout></app-logout>
 <h1 class="ui center aligned header tableTitle">Booked List</h1>
-<table class="ui teal center aligned compact celled table">
+<table class="ui red center aligned striped table">
   <thead>
     <tr>
       <th>Program Name</th>
@@ -13,7 +13,6 @@
       <th>Program Phone Number/ Email</th>
       <th>Program Cost</th>
       <th>Program Website</th>
-      <th>Move to Favorites</th>
       <th>Remove from List</th>
     </tr>
   </thead>
@@ -29,8 +28,7 @@
       <td>{{bookedCamp.program_phone}}</td>
       <td>${{bookedCamp.cost}}</td>
       <td><a class="centered" href="{{bookedCamp.program_website}}">Website Link</a></td>
-      <td><button class="tiny ui teal button">Move</button></td>
-      <td><button class="tiny ui red button" (click)="onRemoveBookedCampByUser(bookedCamp)">Remove</button></td>
+      <td><button class="ui circular red icon button" (click)="onRemoveBookedCampByUser(bookedCamp)"><i class="remove icon"></i></button></td>
     </tr>
   </tbody>
 </table>

@@ -4,7 +4,7 @@
   <div class="four wide column">
     <div class="ui buttons">
       <button
-        class="ui teal labeled icon button"
+        class="ui primary labeled icon button"
         mwlCalendarPreviousView
         [view]="view"
         [(viewDate)]="viewDate"
@@ -19,7 +19,7 @@
         Today
       </button>
       <button
-        class="ui teal right labeled icon button"
+        class="ui primary right labeled icon button"
         mwlCalendarNextView
         [view]="view"
         [(viewDate)]="viewDate"
@@ -29,25 +29,27 @@
       </button>
     </div>
   </div>
+
   <div class="eight wide column">
     <h1 class="ui center aligned header calenderTitle">{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h1>
   </div>
+
   <div class="four wide column">
     <div class="three ui buttons">
       <button
-        class="ui teal button"
+        class="ui primary button"
         (click)="view = 'month'"
         [class.active]="view === 'month'">
         Month
       </button>
       <button
-        class="ui teal button"
+        class="ui primary button"
         (click)="view = 'week'"
         [class.active]="view === 'week'">
         Week
       </button>
       <button
-        class="ui teal button"
+        class="ui primary button"
         (click)="view = 'day'"
         [class.active]="view === 'day'">
         Day
