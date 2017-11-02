@@ -51,7 +51,7 @@ button {
   line-height: 1.25em !important;
 }
 
-.card, .companyInfo {
+.card {
   background-color: #9C9C9E !important;
   margin-top: 5% !important;
 }
@@ -63,6 +63,7 @@ button {
 }
 
 .companyInfo {
+  background-color: grey !important;  
   margin: 5% 10% !important;
   color: #fff;
 }
