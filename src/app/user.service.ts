@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Http, RequestOptions, Headers } from '@angular/http';
 
-// const BASE_URL = 'https://rocky-crag-73141.herokuapp.com';
-const BASE_URL = 'http://localhost:8080';
+const BASE_URL = 'https://rocky-crag-73141.herokuapp.com';
+// const BASE_URL = 'http://localhost:8080';
 
 @Injectable()
 export class UserService {
