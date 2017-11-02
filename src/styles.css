@@ -63,7 +63,7 @@ button {
 }
 
 .companyInfo {
-  background-color: grey !important;  
+  background-color: grey !important;
   margin: 5% 10% !important;
   color: #fff;
 }
@@ -74,6 +74,10 @@ button {
   text-decoration: underline;
   color: #737373 !important;
   margin: 30px 0 !important;
+}
+
+iframe {
+  width: 100%;
 }
 
 .footer {

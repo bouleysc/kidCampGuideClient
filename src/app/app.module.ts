@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-// import { NgSemanticModule } from 'ng-semantic/ng-semantic';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -49,7 +48,6 @@ import { FooterComponent } from './footer/footer.component';
   ],
   imports: [
     BrowserModule,
-    // NgSemanticModule,
     FormsModule,
     HttpModule,
     DataTableModule,
