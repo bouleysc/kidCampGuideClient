@@ -31,7 +31,7 @@ export class SignupComponent implements OnInit {
       (response: Response) => {
         let data = response.json();
         localStorage.setItem('token', data.data)
-        this.router.navigate(['/user/:id'])
+        this.router.navigate(['/user'])
       },
       (error) => {console.log(error)}
 

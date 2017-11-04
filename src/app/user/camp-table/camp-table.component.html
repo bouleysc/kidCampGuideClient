@@ -7,9 +7,14 @@
       <button type="button" class="ui primary button" (click)="onBooked()"><i class="add icon"></i>Add To Booked</button>
     </div>
     <br>
-    <div *ngIf="showSuccessMsg" class="ui blue compact message success">
+    <div *ngIf="showFavSuccessMsg" class="ui blue compact message success">
       <div class="header">
-        Camp(s) Added!
+        Favorite Camp(s) Added!
+      </div>
+    </div>
+    <div *ngIf="showBookSuccessMsg" class="ui blue compact message success">
+      <div class="header">
+        Booked Camp(s) Added!
       </div>
     </div>
     <data-table class="center aligned ui table" id="camps-grid"
@@ -98,9 +103,14 @@
     <button type="button" class="ui blue button" (click)="onBooked()"><i class="add icon"></i>Add To Booked</button>
   </div>
   <br>
-  <div *ngIf="showSuccessMsg" class="ui blue compact message success">
-    <h1 class="ui header">
-      Camp Added!
-    </h1>
+  <div *ngIf="showFavSuccessMsg" class="ui blue compact message success">
+    <div class="header">
+      Favorite Camp(s) Added!
+    </div>
+  </div>
+  <div *ngIf="showBookSuccessMsg" class="ui blue compact message success">
+    <div class="header">
+      Booked Camp(s) Added!
+    </div>
   </div>
 </div>

@@ -12,7 +12,8 @@ import { NgSemanticModule } from 'ng-semantic';
   styleUrls: ['./camp-table.component.css']
 })
 export class CampTableComponent implements OnInit {
-    showSuccessMsg = false;
+    showFavSuccessMsg = false;
+    showBookSuccessMsg = false;
     items = [];
     itemCount = 0;
     itemResource = new DataTableResource(this.items);
@@ -56,9 +57,9 @@ export class CampTableComponent implements OnInit {
     for(let i = 0; i < this.selectedItems.length; i++) {
       this.onAddBookedCampByUser(id,this.selectedItems[i])
     }
-    this.showSuccessMsg=true
+    this.showBookSuccessMsg=true
     setTimeout(()=> {
-      this.showSuccessMsg=false
+      this.showBookSuccessMsg=false
     }, 1000)
   }
 
@@ -77,9 +78,9 @@ export class CampTableComponent implements OnInit {
     for(let i = 0; i < this.selectedItems.length; i++) {
       this.onAddFavoriteCampByUser(id,this.selectedItems[i])
     }
-    this.showSuccessMsg=true
+    this.showFavSuccessMsg=true
     setTimeout(()=> {
-      this.showSuccessMsg=false
+      this.showFavSuccessMsg=false
     }, 1000)
   }
 

@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
         let data = response.json();
         localStorage.setItem('token', data.data)
         // this.router.navigate(['/user/{{person.id}}']
-        this.router.navigate(['/user/:id'])
+        this.router.navigate(['/user'])
         },
       (error) => {
         console.log(error)
