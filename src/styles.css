@@ -83,3 +83,14 @@ iframe {
 .footer {
   margin-top: 20px !important;
 }
+
+@media screen and (max-width: 1000px) {
+  .ui, .card {
+    display: inline-block !important;
+    float: none !important;
+    width: auto !important;
+  }
+  .table, .footer {
+    width: 100% !important;
+  }
+}
