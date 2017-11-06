@@ -11,7 +11,7 @@ One place to find, compare and book Colorado youth camps. Parents usually have t
 
 ## Technologies
 
-CSS, HTML, TypeScript, Angular, Node, bCrypt, Knex, Git/Github, jQuery, OOP, PostgreSQL, Postman, Semantic UI
+CSS, HTML, TypeScript, Angular, Git/Github, jQuery, Semantic UI
 
 ## Future Implementations
 
