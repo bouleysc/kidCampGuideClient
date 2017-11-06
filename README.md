@@ -1,4 +1,4 @@
-# KidCampGuideClient
+# Kid Camp Guide
 
 ![alt text](/src/assets/capstonescreenshot.png)
 ![alt text](/src/assets/capstonescreenshot2.png)
