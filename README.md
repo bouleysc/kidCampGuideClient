@@ -1,27 +1,23 @@
 # KidCampGuideClient
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.9.
+![alt text] (/assets/capstonescreenshot.png)
 
-## Development server
+Live site: https://kidcampguide.firebaseapp.com/
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Purpose
 
-## Code scaffolding
+One place to find, compare and book Colorado youth camps. Parents usually have to waste a lot of time searching the web for camps for their kids. Now, they will be able to have a resource to see camps they might not have heard of and coordinate with other friends/ family with kids.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Technologies
 
-## Build
+CSS, HTML, TypeScript, Angular, Node, bCrypt, Knex, Git/Github, jQuery, OOP, PostgreSQL, Postman, Semantic UI
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+## Future Implementations
 
-## Running unit tests
+1. Users will be able to coordinate with other users
+1. The calendars will be able to color coordinate if you have multiple kids
+1. Be able to move camps from booked list to favorites list and vice versa
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Author
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+* Sally Bouley
