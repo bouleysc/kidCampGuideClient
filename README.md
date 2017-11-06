@@ -1,6 +1,6 @@
 # KidCampGuideClient
 
-![alt text] (/assets/capstonescreenshot.png)
+![alt text] (capstonescreenshot.png)
 
 Live site: https://kidcampguide.firebaseapp.com/
 
