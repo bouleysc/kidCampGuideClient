@@ -14,11 +14,11 @@ const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginComponent },
-  { path: `user`, component: UserComponent },
-  { path: `user/camps`, component: CampTableComponent },
-  { path: `user/favorites`, component: FavoriteListComponent },
-  { path: `user/booked`, component: BookedListComponent },
-  { path: `user/calendar`, component: CalendarComponent },
+  { path: 'user', component: UserComponent },
+  { path: 'user/camps', component: CampTableComponent },
+  { path: 'user/favorites', component: FavoriteListComponent },
+  { path: 'user/booked', component: BookedListComponent },
+  { path: 'user/calendar', component: CalendarComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 

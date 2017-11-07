@@ -32,12 +32,14 @@ export class SignupComponent implements OnInit {
     .subscribe(
       (response: Response) => {
         let data = response.json();
-        localStorage.setItem('token', data.data);
-        this.router.navigate(['/user'])
-      (error) => {
-        this.router.navigate(['/'])
+        if(data.error) {
+          alert('Invalid Input.')
+          this.router.navigate(['/'])
+        } else {
+          localStorage.setItem('token', data.data);
+          this.router.navigate(['/user'])
         }
       }
-    );
+    )
   }
 }

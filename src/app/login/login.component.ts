@@ -28,12 +28,14 @@ export class LoginComponent implements OnInit {
     .subscribe(
       (response: Response) => {
         let data = response.json();
-        localStorage.setItem('token', data.data)
-        this.router.navigate(['/user'])
-      (error) => {
-        this.router.navigate(['/'])
+        if(data.error) {
+          alert('Email or Password does not match.')
+          this.router.navigate(['/'])
+        } else {
+          localStorage.setItem('token', data.data)
+          this.router.navigate(['/user'])
         }
       }
-    );
+    )
   }
 }
