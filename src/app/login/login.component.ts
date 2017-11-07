@@ -14,7 +14,9 @@ export class LoginComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
+
   }
+
   onSubmitLogin(form: NgForm) {
     const email = form.value.email;
     const password = form.value.password;
@@ -27,11 +29,10 @@ export class LoginComponent implements OnInit {
       (response: Response) => {
         let data = response.json();
         localStorage.setItem('token', data.data)
-        // this.router.navigate(['/user/{{person.id}}']
         this.router.navigate(['/user'])
-        },
       (error) => {
-        console.log(error)
+        this.router.navigate(['/'])
+        }
       }
     );
   }
