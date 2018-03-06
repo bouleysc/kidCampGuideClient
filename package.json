@@ -23,10 +23,8 @@
     "@angular/router": "^4.2.4",
     "angular-4-data-table": "^0.2.3",
     "angular-calendar": "^0.21.3",
-    "angular2-moment": "^1.7.0",
     "core-js": "^2.4.1",
     "jquery": "^3.2.1",
-    "moment": "^2.19.1",
     "ng-semantic": "^1.1.13",
     "rxjs": "^5.4.2",
     "zone.js": "^0.8.14"
